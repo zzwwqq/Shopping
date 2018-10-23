@@ -1,0 +1,94 @@
+body{
+  /*font-family: "华文细黑";*/
+  /*background:url("../../images/山水.jpg") no-repeat;*/
+  background-size: 100%;
+}
+html,body{
+    width:100%;
+    height:100%
+}
+
+#divMain {
+	margin-left: 240px;
+}
+#divTitle {
+	width: 880px;
+	height: 30px;
+	border: 1px solid #d0d0d0;
+	/*行高与高度相同，实现文本垂直居中*/
+	line-height: 30px;
+	/*
+	 *
+	 * 绝对路径background: url("http://localhost:8080/goods/images/bg_btns.png") repeat-x 0px -132px;
+	 * 根相对路径background: url("/goods/images/bg_btns.png") repeat-x 0px -132px;
+	 * 文档相对路径background: url("../../../images/bg_btns.png") repeat-x 0px -132px;
+	 *
+	 */
+	background: url("../../images/bg_btns.png") repeat-x 0px -132px;
+
+}
+#spanTitle {
+	margin-left: 18px;
+	/*字体粗细*/
+	font-weight: 900;
+}
+#divBody {
+	width: 880px;
+	height: 550px;
+	border-left: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;	
+}
+
+.tdText {
+	width: 300px;
+	text-align: right;
+}
+
+.passwordProtected{
+	width: 240px;
+	padding:8px;
+}
+
+
+.tdInput {
+	width: 250px;
+}
+
+.tdError {
+	width: 300px;
+}
+
+#tableForm {
+	/*设置表格每行的高度*/
+	line-height: 50px;
+}
+.inputClass {
+	width: 240px;
+	height: 32px;
+	border :1px solid #7f9db9;
+	/*让光标距离输入框左边有一定的距离*/
+	padding-left: 10px;
+	line-height: 32px;
+	
+}
+
+#imgVerifyCode {
+	width: 100px;
+}
+
+#divVerifyCode {
+	width: 240px;
+	height: 60px;
+	text-align: center;
+	border: 1px solid #e2e2e2;
+}
+
+.errorClass {
+	color: #f40000;
+	/*background-color: #fef2f2; 此处设置的无效？颜色只有在下面background中设置才有效*/
+	border: 1px solid #ffb8b8;
+	padding: 8px 8px 8px 35px;
+	font-size: 10pt;
+	background: #fef2f2 url("../../images/error.png") no-repeat;
+}

@@ -1,0 +1,78 @@
+/*元素选择器*/
+body {
+	text-align: center;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 16px;
+}
+
+/*并集选择器*/
+h1, h2, h3 {
+	margin: 0px 0px 0px 0px;
+	padding: 5px;
+}
+
+/*id选择期器，并集选择器*/
+#menu, a {
+	text-decoration: none;
+	color: yellow;
+}
+
+/*后代选择器*/
+#menu a:hover {
+	color: #619953;
+}
+
+#main a:hover {
+	color: #619953;
+}
+
+/*ID选择器*/
+#container {
+	margin: 10px auto 0px auto;
+	text-align: center;
+	width: 600px;
+	height: 800px;
+	background-color: yellow;
+	border: 1px solid #ccc;
+	position: relative;
+}
+/*ID选择器*/
+#title {
+	color: #FFFFFF;
+	background-color: #284B78;
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+	padding: 15px;
+	height: 80px;
+}
+/*id选择器，后代选择器*/
+#title a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+/*id选择器*/
+#menu {
+	width: 100%;
+	overflow: hidden;
+	text-align: left;
+}
+
+/*后代选择器*/
+#main div{
+	float:left;
+	margin: 10px;
+}
+
+/*后代选择器*/
+div dd {	
+	margin: 0px;
+	font-size: 10pt;
+}
+/*后代选择器，交集选择器*/
+div dd.dd_name {
+	color: blue;
+}
+/*后代选择器，交集选择器*/
+div dd.dd_city {
+	color: #000;
+}
