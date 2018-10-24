@@ -76,3 +76,7 @@ div dd.dd_name {
 div dd.dd_city {
 	color: #000;
 }
+
+.myCart_href{
+	color:blue;
+}

@@ -57,27 +57,22 @@ public class ItemsServlet extends BaseServlet {
 		}	
 		
 	     viewIdList += (String)request.getParameter("id") + "-";
-		 /*浏览商品数量大于100时，清空浏览记录*/
+		 /*浏览商品数量大于50时，清空浏览记录*/
 		 String[]idArray = viewIdList.split("-");
-		 if( idArray != null && idArray.length > 100) {
+		 if( idArray != null && idArray.length > 50) {
 			viewIdList="";
 		}
 	     
-	    /*浏览商品数量小于100时，保存id到cookie，显示浏览记录*/
+	    /*浏览商品数量小于50时，保存id到cookie，显示浏览记录
+	     * 注意：Cookie中不能包含空格和逗号，不然会报错
+	     * */
 		Cookie cookie = new Cookie("getViewList",viewIdList);
 		response.addCookie(cookie);
-		
-			 
+					 
 		ArrayList<Items> itemlist = itemsService.getViewItemsList(viewIdList);
         Items item = itemsService.getItemsById(Integer.parseInt(request.getParameter("id")));
 		request.setAttribute("itemlist", itemlist);
 		request.setAttribute("item", item);
 		request.getRequestDispatcher("/jsps/cart/detail.jsp").forward(request, response);
-	}
-	
-	
-	
-	
-	
-	
+	}	
 }

@@ -20,8 +20,21 @@
     <servlet-name>VerifyCodeServlet</servlet-name>
     <servlet-class>cn.itcast.vcode.servlet.VerifyCodeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CartItemsServlet</servlet-name>
+    <servlet-class>com.zwq.cart.web.servlet.CartItemsServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>VerifyCodeServlet</servlet-name>
     <url-pattern>/VerifyCodeServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CartItemsServlet</servlet-name>
+    <url-pattern>/CartItemsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+		<welcome-file>main.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

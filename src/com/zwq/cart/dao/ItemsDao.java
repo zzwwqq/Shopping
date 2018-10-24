@@ -1,29 +1,19 @@
 
 package com.zwq.cart.dao;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import com.zwq.cart.domain.Items;
-
 import cn.itcast.jdbc.TxQueryRunner;
 
-/**
- * 购物车模块
- * 
- * @author asus
- *
- */
 public class ItemsDao {
 	private QueryRunner qr = new TxQueryRunner();
 
 	/**
+	 * 主页main.jsp使用
 	 * 查询所有商品信息
-	 * 
 	 * @return
 	 * @throws SQLException
 	 */
@@ -35,8 +25,8 @@ public class ItemsDao {
 	}
 
 	/**
+	 * detail.jsp使用
 	 * 根据id查询商品详细信息
-	 * 
 	 * @param id
 	 * @return
 	 * @throws SQLException
@@ -46,6 +36,4 @@ public class ItemsDao {
 		Items items = qr.query(sql, new BeanHandler<Items>(Items.class), id);
 		return items;
 	}
-	
-	
 }

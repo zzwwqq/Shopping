@@ -90,3 +90,19 @@ div dd.dd_name {
 div dd.dd_city {
 	color: #000;
 }
+
+.myCart_href{
+	color:blue;
+}
+#byeImg{
+	display:block;
+	width:220;
+	height:90;
+}
+/*并集选择器*/
+#totalPriceSpan,#total{
+	font-size: 24px;
+}
+
+
+
