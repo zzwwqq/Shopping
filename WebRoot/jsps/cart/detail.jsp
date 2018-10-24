@@ -9,12 +9,8 @@
 	<table width="750" height="60" cellpadding="0" cellspacing="0"
 		border="0">
 		<tr>
-		
-			<!-- 商品详情 -->
-			<%
-				Items item = (Items) request.getAttribute("item");
-				if (item != null) {
-			%>
+<!-- 商品详情 -->
+<c:if test="${item != null}">
 			<td width="70%" valign="top">
 				<table>
 					<tr>
@@ -47,35 +43,29 @@
 					</tr>
 				</table>
 			</td>
-			<%
-				}
-			%>
-
+</c:if>
 			<!-- 浏览过的商品 -->
 			<td width="30%" bgcolor="#EEE" align="center"><br> <b>您浏览过的商品</b><br>
-				<!-- 循环开始 --> <%
- 	ArrayList<Items> itemlist = (ArrayList<Items>) request.getAttribute("itemlist");
- 	if (itemlist != null && itemlist.size() > 0) {
- 		System.out.println("itemlist.size=" + itemlist.size());
- 		for (Items i : itemlist) {
- 			System.out.println("========" + i.getName());
- %>
+				<!-- 循环开始 -->
+   <c:if test="${itemlist != null && itemlist.size() > 0  }">
+          <c:forEach items="${itemlist }" var = "item">
 				<div>
 					<dl>
 						<dt>
-							<a href="ItemsServlet?method=showItemsDetail&id=<%=i.getId()%>"><img
-								src="/WebCourse/images/items/<%=i.getPicture()%>" width="120"
+							<a href="ItemsServlet?method=showItemsDetail&id=${item.id }"><img
+								src="/WebCourse/images/items/${item.picture }" width="120"
 								height="90" border="1" /></a>
 						</dt>
-						<dd class="dd_name"><%=i.getName()%></dd>
+						<dd class="dd_name">${item.name }</dd>
 						<dd class="dd_city">
-							产地:<%=i.getCity()%>&nbsp;&nbsp;价格:<%=i.getPrice()%>￥
+							产地:${item.city }&nbsp;&nbsp;价格:${item.price }￥
 						</dd>
 					</dl>
-				</div> <%
- 	}
- 	}
- %> <!-- 循环结束 --></td>
+				</div>
+   </c:forEach>
+</c:if>
+  <!-- 循环结束 -->
+  </td>
 		</tr>
 
 	</table>

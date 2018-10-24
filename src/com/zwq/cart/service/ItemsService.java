@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import com.zwq.cart.dao.ItemsDao;
 import com.zwq.cart.domain.Items;
+import com.zwq.constant.Constant;
 
 public class ItemsService {
 	private ItemsDao itemsDao = new ItemsDao();
@@ -51,7 +52,9 @@ public class ItemsService {
 	{
 		System.out.println("list:"+list);
 		ArrayList<Items> itemlist = new ArrayList<Items>();
-		int iCount = 3; 
+		
+		//限制页面显示的浏览记录条数
+		int iCount = Constant.NUMBER_OF_VIEWING_RECORDING; 
 		if(list != null && list.length() > 0)
 		{
 		    String[] arr = list.split("-");
