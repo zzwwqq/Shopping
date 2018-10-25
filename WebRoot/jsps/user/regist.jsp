@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 
 	<!-- 导入css文件 -->
-	<link rel="stylesheet" type="text/css" href="<c:url value = 'http://localhost:8080/WebCourse/css/user/regist.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value = '/css/user/regist.css'/>">
 	<!--导入jQuery文件 -->
 	<script type="text/javascript" src = "<c:url value = '/js/jquery-3.2.1.min.js'/>"></script>
 	<!-- 导入js文件 -->

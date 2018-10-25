@@ -6,7 +6,7 @@ import com.zwq.user.domain.User;
 
 
 public class CartItems {
-	private String cartItemId;//主键
+	private int cartItemId;//主键
 	private int itemQuantity;//购物车中对应用户的商品数量
 	private Items items;//商品
 	private User user;//所属用户
@@ -24,11 +24,11 @@ public class CartItems {
 		return b3.doubleValue(); 
 	}
 
-	public String getCartItemId() {
+	public int getCartItemId() {
 		return cartItemId;
 	}
 
-	public void setCartItemId(String cartItemId) {
+	public void setCartItemId(int cartItemId) {
 		this.cartItemId = cartItemId;
 	}
 

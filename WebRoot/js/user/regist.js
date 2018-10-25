@@ -11,10 +11,10 @@ $(function() {
 	 * over和out都是函数，over是鼠标移入时执行，out是鼠标移出时执行
 	 */
 	$("#submitBtn").hover(function() {
-		$("#submitBtn").attr("src", "/blog/images/regist2.jpg");
+		$("#submitBtn").attr("src", "/WebCourse/images/regist2.jpg");
 	},
 		function() {
-			$("#submitBtn").attr("src", "/blog/images/regist1.jpg");
+			$("#submitBtn").attr("src", "/WebCourse/images/regist1.jpg");
 		}
 	);
 

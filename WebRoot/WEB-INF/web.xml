@@ -24,6 +24,11 @@
     <servlet-name>CartItemsServlet</servlet-name>
     <servlet-class>com.zwq.cart.web.servlet.CartItemsServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PageServlet</servlet-name>
+    <servlet-class>com.zwq.page.web.servlet.PageServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>VerifyCodeServlet</servlet-name>
@@ -33,8 +38,12 @@
     <servlet-name>CartItemsServlet</servlet-name>
     <url-pattern>/CartItemsServlet</url-pattern>
   </servlet-mapping>
-  
-  <welcome-file-list>
+  <servlet-mapping>
+    <servlet-name>PageServlet</servlet-name>
+    <url-pattern>/PageServlet</url-pattern>
+  </servlet-mapping>
+
+   <welcome-file-list>
 		<welcome-file>main.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

@@ -32,8 +32,6 @@ public class CartItemsService {
 			CartItems datebase_cartItem = cartItemsDao.findByUidAndid(cartItems.getUser().getUid(),cartItems.getItems().getId());
 			//如果原来没有这个条目，那么就添加条目
 			if(datebase_cartItem == null) {
-				//补全数据，即为CartItemId设值，这一步后，CartItems对象中只有orderBy没有值
-				cartItems.setCartItemId(CommonUtils.uuid());
 				//调用dao层addCartItems方法将信息存入数据库
 				cartItemsDao.addCartItems(cartItems);
 			} 
@@ -97,7 +95,7 @@ public class CartItemsService {
 	 * @param response
 	 * @throws CartException 
 	 */
-	public boolean addNum(String cartItemId,int itemQuantity) throws CartException {
+	public boolean addNum(int cartItemId,int itemQuantity) throws CartException {
 		try {
 			int affectRowNum = cartItemsDao.updateItemQuantity(cartItemId, itemQuantity);
 			if (affectRowNum > 0) {
@@ -117,7 +115,7 @@ public class CartItemsService {
 	 * @param response
 	 * @throws CartException 
 	 */
-	public boolean reduceNum(String cartItemId,int itemQuantity) throws CartException {
+	public boolean reduceNum(int cartItemId,int itemQuantity) throws CartException {
 		try {
 			int affectRowNum = cartItemsDao.updateItemQuantity(cartItemId, itemQuantity);
 			if (affectRowNum > 0) {

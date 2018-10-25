@@ -36,6 +36,7 @@ public class ItemsServlet extends BaseServlet {
 
 	public void returnHome(HttpServletRequest request, HttpServletResponse response) {
     	try {
+    		request.setAttribute("itemsList", new ItemsService().getAllItems());
 			request.getRequestDispatcher("/jsps/main.jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			// TODO 自动生成的 catch 块

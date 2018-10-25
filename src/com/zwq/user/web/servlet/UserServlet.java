@@ -291,8 +291,10 @@ public class UserServlet extends HttpServlet{
 		request.setAttribute("msg", "恭喜您登录成功！");
 		//重定向后，request被清空，不能再获取request中的数据
 		//response.sendRedirect("/blog/index.jsp");
+		//request.setAttribute("itemsList", new ItemsService().getAllItems());
 		//转发
-		request.getRequestDispatcher("/jsps/main.jsp").forward(request, response);
+		request.getRequestDispatcher("/PageServlet?method=getPageBean").forward(request, response);
+		//request.getRequestDispatcher("/jsps/main.jsp").forward(request, response);
 	}
 	
 	/**

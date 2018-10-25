@@ -175,7 +175,8 @@ public class CartItemsServlet extends BaseServlet {
 	 */
 	public void addNum(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		String tempItemQuantity1 = request.getParameter("itemQuantity");
-		String cartItemId = request.getParameter("cartItemId");
+		String cartItemId1 = request.getParameter("cartItemId");
+		int cartItemId = Integer.parseInt(cartItemId1);
 		int tempItemQuantity2 = Integer.parseInt(tempItemQuantity1);
 		int itemQuantity = ++tempItemQuantity2;
 		try {
@@ -204,7 +205,8 @@ public class CartItemsServlet extends BaseServlet {
 	 */
 	public void reduceNum(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		String tempItemQuantity1 = request.getParameter("itemQuantity");
-		String cartItemId = request.getParameter("cartItemId");
+		String cartItemId1 = request.getParameter("cartItemId");
+		int cartItemId = Integer.parseInt(cartItemId1);
 		int tempItemQuantity2 = Integer.parseInt(tempItemQuantity1);
 		int itemQuantity = 0;
 		if (tempItemQuantity2 < 1 || tempItemQuantity2 == 1) {
@@ -234,8 +236,9 @@ public class CartItemsServlet extends BaseServlet {
 		}
 	}
 	
-	public void Buy(HttpServletRequest request,HttpServletResponse response) {
-		
+	public void afterBuyDeleteCartItems(HttpServletRequest request,HttpServletResponse response) {
+		String []cartItemIdArray= (String [])request.getAttribute("cartItemIdArray");
+		System.out.println("字符串数组的长度：" + cartItemIdArray.length);
 	}
 	
 	

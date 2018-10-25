@@ -42,7 +42,7 @@ public class CartItemsDao {
 	 * @param quantity
 	 * @throws SQLException
 	 */
-	public int updateItemQuantity (String cartItemId,int itemQuantity) throws SQLException {
+	public int updateItemQuantity (int cartItemId,int itemQuantity) throws SQLException {
 		String sql = "update t_cartitem set itemQuantity=? where cartItemId=?";
 		return qr.update(sql,itemQuantity,cartItemId);
 	}
@@ -110,7 +110,7 @@ public class CartItemsDao {
 		/*
 		 * 通过购物车主键，删除购物车条目
 		 */
-		public int deleteCartItemsByCartItemId(String cartItemId) throws SQLException {
+		public int deleteCartItemsByCartItemId(int cartItemId) throws SQLException {
 			String sql = "delete from t_cartitem where cartItemId = ?";
 			return qr.update(sql,cartItemId);
 		}

@@ -3,6 +3,7 @@
 <%@ page import="com.zwq.cart.domain.Items"%>
 <%@ page import="com.zwq.user.domain.User"%>
 <%@ page import = "com.zwq.cart.domain.CartItems" %>
+<%@ page import = "com.zwq.page.domain.PageBean" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -45,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					out.print("欢迎" + user.getLoginname() + "用户!");
 			%>
 
-				| <a id="Home" href="ItemsServlet?method=returnHome">主页</a>
+				| <a id="Home" href="PageServlet?method=getPageBean">主页</a>
 				| <a id="cart" href="CartItemsServlet?method=myCart">我的购物车</a> 
 				| <a id="updatePassword" href="jsps/user/updatepassword.jsp?user=<%=request.getSession().getAttribute("sessionUser")%>">修改密码</a>
 				| <a id="quit" href="quit.do">退出</a>

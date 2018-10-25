@@ -73,7 +73,11 @@
 	</tr>
 	<tr>
 		<td colspan="6" align = "right">
-			<a id = "byeA" class = "byeA" href="<c:url value='/jsps/order/order.jsp'/>"><img  alt="点击购买" id = "byeImg" class = "byeImg" src='<c:url value = '/images/cart/bye.png'/>'></a>
+		<form action="CartItemsServlet" method = "post">
+		    <input type = "hidden" name = "method" value = "afterBuyDeleteCartItems"/>
+		    <input type = "hidden" id = "cartItemIdArray" name = "cartItemIdArray[]" value = ""/>
+		    <input type = "image" id = "buyImg" class = "buyImg" src="<c:url value = '/images/cart/buy.png'/>"/>
+		</form>
 		</td>
 	</tr>
 </table>
