@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file = "/jsps/header.jsp" %>
+<!-- 导入css文件 -->
 
-
+<html style = "background-image: url('<%=basePath%>images/background/001.gif');"></html>
 <script type="text/javascript">
 		function refresh(obj){
 			obj.src="/WebCourse/VerifyCodeServlet?a="+new Date().getTime();

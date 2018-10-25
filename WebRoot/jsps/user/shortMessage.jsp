@@ -42,6 +42,42 @@ body {
 </style>
 </head>
 <script type="text/javascript">
+    var sms="";
+    $("#btn").click(function(){
+        var phone=$("#phone").val();
+        if(phone!="")
+        {
+            $.ajax({
+                url:"sendSMS",
+                type:"post",
+                data:{"phone":phone},
+                success:function(result){
+                    sms=result;
+                }
+            });
+        }else{
+             alert("请输入手机号");
+            return false;
+        }
+
+    });
+    $("#lo").click(function(){
+        var code=$("#code").val();
+        if(code==""){           
+            alert("请输入验证码");
+        }else{
+            if(sms==code){
+
+                window.location.href="register_success.jsp";
+            }else{
+                alert("验证码错误");
+
+            };
+        };
+
+    });
+</script>
+<script type="text/javascript">
     var InterValObj; //timer变量，控制时间
     var count = 30; //间隔函数，1秒执行
     var curCount;//当前剩余秒数
@@ -94,43 +130,4 @@ body {
 				</div>
 			</form>
 		</div>
-	</div>
-</body>
-
-<script type="text/javascript">
-    var sms="";
-    $("#btn").click(function(){
-        var phone=$("#phone").val();
-        if(phone!="")
-        {
-            $.ajax({
-                url:"sendSMS",
-                type:"post",
-                data:{"phone":phone},
-                success:function(result){
-                    sms=result;
-                }
-            });
-        }else{
-             alert("请输入手机号");
-            return false;
-        }
-
-    });
-    $("#lo").click(function(){
-        var code=$("#code").val();
-        if(code==""){           
-            alert("请输入验证码");
-        }else{
-            if(sms==code){
-
-                window.location.href="register_success.jsp";
-            }else{
-                alert("验证码错误");
-
-            };
-        };
-
-    });
-</script>
-</html>
+<%@ include file = "/jsps/footer.jsp" %>

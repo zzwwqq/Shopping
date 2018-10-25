@@ -8,8 +8,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html style = "background-image: url('<%=basePath%>images/background/001.gif');">
 <head>
+
 
 <!-- 和上面的配合使用 -->
 <base href="<%=basePath%>">
@@ -128,6 +129,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 			</form>
 		</div>
-	</div>
-</body>
-</html>
+<%@ include file = "/jsps/footer.jsp" %>

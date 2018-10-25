@@ -236,11 +236,63 @@ public class CartItemsServlet extends BaseServlet {
 		}
 	}
 	
-	public void afterBuyDeleteCartItems(HttpServletRequest request,HttpServletResponse response) {
-		String []cartItemIdArray= (String [])request.getAttribute("cartItemIdArray");
-		System.out.println("字符串数组的长度：" + cartItemIdArray.length);
+//	/**
+//	 * 点击购买按钮后，删除购物车中已购买的商品，购物车中没有下单的商品仍然保留
+//	 * @param request
+//	 * @param response
+//	 * @throws ServletException
+//	 * @throws IOException
+//	 */
+//	public void afterBuyDeleteCartItems(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+//		String cartItemId= request.getParameter("cartItemId");
+//		if (cartItemId != null && cartItemId.length() > 0) {
+//			String[] cartItem= cartItemId.split(",");
+//			for(String id:cartItem) {
+//				System.out.println("商品在购物车中的"+id);
+//				try {
+//					boolean b = cartItemsService.afterBuyDeleteCartItems(Integer.parseInt(id));
+//					if (b) {
+//						request.getRequestDispatcher("/jsps/order/order.jsp").forward(request, response);
+//						return;
+//					}
+//					request.getRequestDispatcher("/jsps/order/order.jsp").forward(request, response);
+//					return;
+//				} catch (NumberFormatException e) {
+//					request.setAttribute("msg", e.getMessage());
+//					request.setAttribute("code", "error");
+//					request.getRequestDispatcher("/jsps/msg.jsp").forward(request, response);
+//				} catch (CartException e) {
+//					request.setAttribute("msg", e.getMessage());
+//					request.setAttribute("code", "error");
+//					request.getRequestDispatcher("/jsps/msg.jsp").forward(request, response);
+//				}
+//			}
+//		}
+//	}	
+	
+	
+	
+	/**
+	 * 点击购买按钮后，删除购物车中已购买的商品，购物车中没有下单的商品仍然保留
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void afterBuyDeleteCartItems(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		String cartItemId= request.getParameter("cartItemId");
+		if (cartItemId != null && cartItemId.length() > 0) {
+			String[] cartItem= cartItemId.split(",");
+			for(String id:cartItem) {
+				System.out.println("商品在购物车中的"+id);				
+					try {
+						cartItemsService.afterBuyDeleteCartItems(Integer.parseInt(id));
+					} catch (NumberFormatException | CartException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					}
+			}	
+			request.getRequestDispatcher("/jsps/order/order.jsp").forward(request, response);			
+		}	
 	}
-	
-	
-	
 }

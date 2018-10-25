@@ -128,8 +128,15 @@ public class CartItemsService {
 		return false;	
 	}
 	
-	
-	
-	
-	
+	public boolean afterBuyDeleteCartItems(int cartItemId) throws CartException {
+		try {
+			int affectRowNum = cartItemsDao.deleteCartItemsByCartItemId(cartItemId);
+			if (affectRowNum > 0) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			throw new CartException("删除购物车中已购商品失败！");
+		}
+	}	
 }

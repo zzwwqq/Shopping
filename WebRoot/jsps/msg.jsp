@@ -81,6 +81,4 @@ a:hover {color:#FF6600; text-decoration: underline;}
 		<span style="margin-left: 50px;"><a target="_top" href="<c:url value='ItemsServlet?method=returnHome'/>">主页</a></span>
 	  </div>
 	</div>
-</div>
-  </body>
-</html>
+<%@ include file = "/jsps/footer.jsp" %>

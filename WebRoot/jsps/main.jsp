@@ -17,7 +17,7 @@
 	}
 </script>
 <center>
-	<table width="750" height="60" cellpadding="0" cellspacing="0"
+	<table width="1000" height="70" cellpadding="0" cellspacing="0"
 		border="0">
 		<tr>
 			<td>
@@ -29,7 +29,7 @@
 								<dt>
 									<a href="ItemsServlet?method=showItemsDetail&id=${items.id }">
 										<img src="/WebCourse/images/items/${items.picture }"
-										width="120" height="90" border="1" />
+										width="200" height="150" border="1" />
 									</a>
 								</dt>
 								<dd class="dd_name">${items.name }</dd>
@@ -72,6 +72,5 @@
 		value="${pageBean.currentPageNum }" class="" type="text">&nbsp;页
 	&nbsp; <a class = "page" href="javascript:_go();" class="go">GO</a>
 	<!-- end list -->
-
 </center>
 <%@ include file="/jsps/footer.jsp"%>

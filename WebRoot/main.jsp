@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
 <%@ include file = "/jsps/header.jsp"%>
+<link rel="stylesheet" type="text/css" href="css/mainpage/mainpage.css">
+
 			<center>
-				<table width="750" height="60" cellpadding="0" cellspacing="0"
+				<table  cellpadding="0" cellspacing="0"
 					border="0">
 					<tr>
 						<td>
@@ -18,7 +20,7 @@
 								<dl>
 									<dt>
 										<a href="ItemsServlet?method=showItemsDetail&id=<%=item.getId()%>">
-										<img src="/WebCourse/images/items/<%=item.getPicture() %>" width="120" height="90"
+										<img src="/WebCourse/images/items/<%=item.getPicture() %>" width="230" height="120"
 											border="1" /></a>
 									</dt>
 									<dd class="dd_name"><%=item.getName() %></dd>

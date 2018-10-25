@@ -2,7 +2,9 @@
 	contentType="text/html; charset=utf-8"%>
 <%@ include file="/jsps/header.jsp"%>
 <script type="text/javascript"	
-  src="/WebCourse/js/cart/cart.js"></script>
+  src="/WebCourse/js/cart/cart.js">
+  </script>
+<link rel="stylesheet" type="text/css" href="css/detail/detail.css">
 
 <center>
 <h1>${error }</h1>

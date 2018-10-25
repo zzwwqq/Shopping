@@ -1,15 +1,36 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file = "/jsps/header.jsp" %>
+<link rel="stylesheet" type="text/css" href="css/detail/detail.css">
 <script src="<c:url value='/js/cart/cartList.js'/>"></script>
 <script src="<c:url value='/js/jquery-1.5.1.js'/>"></script>
+<script type="text/javascript">
 
+function buy() {
+var AllcartItemId="";
+$(":checkbox[name=checkboxBtn][checked=true]").each(function() {		
+	var cartItemId = $(this).val()+",";
+//	alert("执行buy方法，获取cartItemId: "+cartItemId);
+	AllcartItemId+=cartItemId;
+//	alert(AllcartItemId);
+});
+$("#cartItemId").attr("value",AllcartItemId);
+//alert("执行bye方法并赋值");
+ var aaa = $("#cartItemId").val();
+// alert("从客户端获取cartItemId：  "+aaa);
+}
+
+</script>
 
 <c:choose>
 <c:when test="${cartItemList eq null }">
-    <h1>购物车为空</h1>
+  <html style = "background-image: url('<%=basePath%>images/background/001.gif');">
+     <h1>购物车为空</h1>
+  </html>
 </c:when>
 <c:when test="${cartItemList.size() <= 0 }">
-    <h1>购物车为空</h1>
+   <html style = "background-image: url('<%=basePath%>images/background/001.gif');">
+     <h1>购物车为空</h1>
+  </html>
 </c:when>
 <c:otherwise>
 <table width="750" height="319" border="0" align="center">
@@ -75,7 +96,7 @@
 		<td colspan="6" align = "right">
 		<form action="CartItemsServlet" method = "post">
 		    <input type = "hidden" name = "method" value = "afterBuyDeleteCartItems"/>
-		    <input type = "hidden" id = "cartItemIdArray" name = "cartItemIdArray[]" value = ""/>
+		    <input type = "hidden" class = "cartItemId" id = "cartItemId" name = "cartItemId" value =""/>
 		    <input type = "image" id = "buyImg" class = "buyImg" src="<c:url value = '/images/cart/buy.png'/>"/>
 		</form>
 		</td>

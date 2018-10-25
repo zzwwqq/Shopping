@@ -1,9 +1,5 @@
 $(function() {
 	showTotal();
-	buy();
-	
-	
-	
 	
 	/*
 	 * 给所有条目的复选框添加click事件
@@ -79,17 +75,3 @@ function showTotal() {
 	$("#total").text(total);
 }
 
-function buy() {
-var cartItemIdArray = [];
-$(":checkbox[name=checkboxBtn][checked=true]").each(function() {		
-	alert("执行buy方法");	
-	var cartItemId1= $(this).val();
-	alert("执行buy方法，获取cartItemId1"+cartItemId1);
-	cartItemIdArray.push(cartItemId1);
-});
-$("#cartItemIdArray").val("cartItemIdArray[]",cartItemIdArray);
-alert("执行bye方法并赋值");
- var aaa = $("#cartItemIdArray").val();
- alert("从客户端获取cartItemIdArray：  "+aaa);
- 
-}

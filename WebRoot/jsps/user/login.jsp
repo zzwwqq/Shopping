@@ -96,6 +96,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			for more information. <a href="https://github.com/" title="zwqgithub"
 				target="_blank">GitHub</a>
 		<p />
-	</div>
-</body>
-</html>
+<%@ include file = "/jsps/footer.jsp" %>
