@@ -71,6 +71,8 @@
 	跳至 &nbsp;<input id="currentPageText" size=1
 		value="${pageBean.currentPageNum }" class="" type="text">&nbsp;页
 	&nbsp; <a class = "page" href="javascript:_go();" class="go">GO</a>
-	<!-- end list -->
+	<!-- 分页结束 -->
+	
+	
 </center>
 <%@ include file="/jsps/footer.jsp"%>
