@@ -32,8 +32,10 @@ public class CartItemsServlet extends BaseServlet {
 	 * @param req
 	 * @param resp
 	 * @return
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	public void add(HttpServletRequest request, HttpServletResponse response) {
+	public void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*
 		 * 得到User，判断用户是否已经登录
 		 */
@@ -68,13 +70,15 @@ public class CartItemsServlet extends BaseServlet {
 		/*
 		 * 3.添加成功后，查询当前用户购物车中的所有条目，转发到myCart.jsp
 		 */
-		try {
-			myCart(request, response);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		request.setAttribute("msg", "商品已加入购物车！");
+		request.getRequestDispatcher("ItemsServlet?method=showItemsDetail&id="+cartItem.getItems().getId()).forward(request, response);
+//		try {
+//			myCart(request, response);
+//		} catch (ServletException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	/**
@@ -292,6 +296,7 @@ public class CartItemsServlet extends BaseServlet {
 						e.printStackTrace();
 					}
 			}	
+			request.setAttribute("oneParam", "Take_the_payment");
 			request.getRequestDispatcher("/jsps/order/order.jsp").forward(request, response);			
 		}	
 	}

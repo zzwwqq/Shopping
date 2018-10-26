@@ -8,6 +8,7 @@
 
 <center>
 <h1>${error }</h1>
+<h2>${msg }</h2>
 	<table width="750" height="60" cellpadding="0" cellspacing="0"
 		border="0">
 		<tr>
@@ -17,7 +18,7 @@
 				<table>
 					<tr>
 						<td id="img" rowspan="4"><img
-							src="<%=basePath%>images/items/${item.picture}" width="240"
+							src="<%=basePath%>images/items/${item.picture}" width="262"
 							height="190" /></td>
 					</tr>
 					<tr>
@@ -38,6 +39,10 @@
 									买：
 									<input id="cnt" style="width: 40px;text-align: center;" type="text" name="itemQuantity" value="1" />件
 								</form>
+								
+								<a href="jsps/order/order.jsp?oneParam=Immediate_payment"><img id="Immediate_payment" alt="图片"					 
+								src="<%=basePath%>images/cart/clickbuy.jpg" /></a>
+								
 								<a href="javascript:$('#form1').submit();"><img id="addCartImg" alt="图片"					 
 								src="<%=basePath%>images/cart/add.png" /></a>
 							</div>
