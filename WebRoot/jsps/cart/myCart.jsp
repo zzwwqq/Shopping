@@ -3,23 +3,6 @@
 <link rel="stylesheet" type="text/css" href="css/detail/detail.css">
 <script src="<c:url value='/js/cart/cartList.js'/>"></script>
 <script src="<c:url value='/js/jquery-1.5.1.js'/>"></script>
-<script type="text/javascript">
-
-function buy() {
-var AllcartItemId="";
-$(":checkbox[name=checkboxBtn][checked=true]").each(function() {		
-	var cartItemId = $(this).val()+",";
-//	alert("执行buy方法，获取cartItemId: "+cartItemId);
-	AllcartItemId+=cartItemId;
-//	alert(AllcartItemId);
-});
-$("#cartItemId").attr("value",AllcartItemId);
-//alert("执行bye方法并赋值");
- var aaa = $("#cartItemId").val();
-// alert("从客户端获取cartItemId：  "+aaa);
-}
-
-</script>
 
 <c:choose>
 <c:when test="${cartItemList eq null }">
@@ -40,7 +23,7 @@ $("#cartItemId").attr("value",AllcartItemId);
    	<input type="checkbox" id="selectAll" checked=fasle/>
    	<label for="selectAll">全选</label>
     </th>
-    <th width="200">商品</th>
+    <th width="250">商品</th>
     <th width="82">单价</th>
     <th width="76">数量</th>
     <th width="99">小计</th>
@@ -52,13 +35,25 @@ $("#cartItemId").attr("value",AllcartItemId);
 	        <!-- 每个商品的复选框 ，默认被选中-->
 			<input type="checkbox" value="${CartItems.cartItemId }" name="checkboxBtn" checked="checked"/>
 		</td>
-		<td align="center">
-			<a class="linkImage" href="ItemsServlet?method=showItemsDetail&id=${CartItems.items.id }">
-			<img border="0" width="70" align="top" src="<c:url value='/images/items/${CartItems.items.picture }'/>"/>
-			</a>
-			  <a class = "myCart_href" href="<c:url value='/ItemsServlet?method=showItemsDetail&id=${CartItems.items.id }'/>">
-		    <span>${CartItems.items.name }</span>
-		    </a>
+		<td width = "320">
+		<table>
+		<tr>
+		 	 <td align="center">
+		   	 	<a class="linkImage" href="ItemsServlet?method=showItemsDetail&id=${CartItems.items.id }">
+					<img border="0" width="130" height = "90" align="top" src="<c:url value='/images/items/${CartItems.items.picture }'/>"/>
+		  		</a>
+		 	</td>
+		</tr>
+		<tr>
+			<td>
+		  		 <a class = "myCart_href" href="<c:url value='/ItemsServlet?method=showItemsDetail&id=${CartItems.items.id }'/>">
+		  		 	 <span>${CartItems.items.name }</span>
+		   		 </a>
+			</td>
+		</tr>
+		</table>
+			
+			
 		</td>
 		<td>
 		<!-- 每个商品的单价 -->
@@ -94,10 +89,10 @@ $("#cartItemId").attr("value",AllcartItemId);
 	</tr>
 	<tr>
 		<td colspan="6" align = "right">
-		<form action="CartItemsServlet" method = "post">
+		<form action="CartItemsServlet" id = "Buy" method = "post">
 		    <input type = "hidden" name = "method" value = "afterBuyDeleteCartItems"/>
 		    <input type = "hidden" class = "cartItemId" id = "cartItemId" name = "cartItemId" value =""/>
-		    <input type = "image" id = "buyImg" class = "buyImg" src="<c:url value = '/images/cart/buy.png'/>"/>
+		    <input type = "image"  onclick="buy()" id = "buyImg" class = "buyImg" src="<c:url value = '/images/cart/buy.png'/>"/>
 		</form>
 		</td>
 	</tr>

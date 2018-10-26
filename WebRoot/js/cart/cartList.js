@@ -50,8 +50,29 @@ $(function() {
 });
 
 
-
-
+function buy() {
+	//alert("s");
+$("#Buy").submit(function(){
+	//alert("haha");
+var AllcartItemId="";
+$(":checkbox[name=checkboxBtn][checked=true]").each(function() {		
+	var cartItemId = $(this).val()+",";
+//	alert("执行buy方法，获取cartItemId: "+cartItemId);
+	AllcartItemId+=cartItemId;
+//	alert(AllcartItemId);
+});
+$("#cartItemId").attr("value",AllcartItemId);
+//alert("执行buy方法并赋值");
+ var aaa = $("#cartItemId").val();
+ if(aaa == null || aaa.length == 0){
+	 alert("请选择您要购买的商品！");
+	 return false;
+ } else{
+	 alert("从客户端获取cartItemId：  "+aaa);
+	 return true;
+ }
+});
+}
 /*
  * 计算总计
  */

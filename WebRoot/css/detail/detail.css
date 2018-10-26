@@ -96,6 +96,9 @@ div dd.dd_city {
 }
 #buyImg{
 	display:block;
+	/*border:none;*/
+	border:0;
+	outline:none;
 	width:220;
 	height:90;
 }
