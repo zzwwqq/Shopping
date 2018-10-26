@@ -71,8 +71,42 @@
 	跳至 &nbsp;<input id="currentPageText" size=1
 		value="${pageBean.currentPageNum }" class="" type="text">&nbsp;页
 	&nbsp; <a class = "page" href="javascript:_go();" class="go">GO</a>
-	<!-- 分页结束 -->
+	<!-- 分页第一块结束 -->
 	
-	
+	<!-- 分页第二块开始 -->
+	<c:choose>
+	<c:when test="${pageBean.totalPage <= 6 }">
+		<c:set var = "begin" value = "1"></c:set>
+		<c:set var = "end" value = "${pageBean.totalPage }"></c:set>
+	</c:when>
+	<c:otherwise>
+		<c:set var = "begin" value = "${pageBean.currentPageNum-2 }"></c:set>
+		<c:set var = "end" value = "${pageBean.currentPageNum+3 }"></c:set>
+		<c:if test="${begin < 1 }">
+            <c:set var = "begin" value = "1"></c:set>
+		    <c:set var = "end" value = "6"></c:set>
+		</c:if>
+	    <c:if test="${end > pageBean.totalPage }">
+		    <c:set var = "end" value = "${pageBean.totalPage }"></c:set>
+		    <c:set var = "begin" value = "${pageBean.totalPage-5 }"></c:set>
+		</c:if>
+	</c:otherwise>
+</c:choose> 
+
+<c:forEach begin = "${begin }" end = "${end }" var = "i">
+    <c:choose>
+    <c:when test="${i eq pageBean.currentPageNum }">
+    	<span class = "spanBtnSelect">${i }</span>
+    </c:when>
+    <c:otherwise>
+    	<a style="color:orange;" href="PageServlet?method=getPageBean&currentPageNum=${i }" class = "aBtn">${i }</a>
+    </c:otherwise>
+    </c:choose>
+</c:forEach>  
+
+<c:if test="${end < pageBean.totalPage }">
+	<span class="spanApostrophe">...</span> 
+</c:if>
+<!-- 分页第二块结束 -->  	
 </center>
 <%@ include file="/jsps/footer.jsp"%>
