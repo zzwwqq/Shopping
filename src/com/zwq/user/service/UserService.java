@@ -13,6 +13,7 @@ import com.zwq.user.dao.UserDao;
 import com.zwq.user.domain.User;
 import com.zwq.user.service.exception.UserException;
 import com.zwq.user.service.shortmessage.SendShortMessage;
+import com.zwq.util.MD5Util;
 
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.mail.Mail;
@@ -34,6 +35,12 @@ public class UserService {
 		user.setUid(CommonUtils.uuid());
 		user.setActivationCode(CommonUtils.uuid()+CommonUtils.uuid());
 		user.setStatus(0);
+		
+		/*
+		 * 对密码进行MD5加密
+		 */
+		user.setLoginpass(MD5Util.md5Encode(user.getLoginpass()));
+		
 		/*
 		 * 保存到数据库
 		 */
@@ -152,7 +159,11 @@ public class UserService {
 	 * @param loginpass
 	 */
 	public User login(String loginname,String loginpass) {
-		User user = userDao.findByLoginnameAndLoginPass(loginname, loginpass);
+		/*
+		 * 对表单密码进行MD5加密后，再与数据库中的比较
+		 */
+		String formLoginpass = MD5Util.md5Encode(loginpass);
+		User user = userDao.findByLoginnameAndLoginPass(loginname, formLoginpass);
 		return user;
 	}	
 	
@@ -165,8 +176,12 @@ public class UserService {
 		/*
 		 * 验证原密码
 		 */
+		/**
+		 * 先将表单传过来的密码MD5加密，再去和数据库比较
+		 */
+		String formLoginpass = MD5Util.md5Encode(oldPass);
 			try {
-				boolean b = userDao.findByUidAndPassword(uid, oldPass);
+				boolean b = userDao.findByUidAndPassword(uid, formLoginpass);
 			    if (!b) {
 					throw new UserException("原密码错误！");
 				}
@@ -175,7 +190,11 @@ public class UserService {
 			     * 原密码正确时，
 			     * 修改密码
 			     */
-			    userDao.updatePassword(uid, newPass);   
+			    /**
+				 * 先将表单传过来的密码MD5加密，再存数据库
+				 */
+				String forNewLoginpass = MD5Util.md5Encode(newPass);
+			    userDao.updatePassword(uid, forNewLoginpass);   
 			} catch (SQLException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();

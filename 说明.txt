@@ -1,0 +1,34 @@
+使用工具：
+IDE:MyEclipse2017
+JDK :1.8
+DataBase：MySQL
+Server：Tomcat 9.0.5
+browser：Chrome
+
+
+技术：
+MySQL，JDBC，JSP，Servlet，JQuery，javaScript,Ajax,JAVA
+
+功能：
+用户模块：
+邮箱注册
+激活功能，只有点击了邮件中的激活链接后方可激活
+发短信找回密码
+登录注册前台和后台验证
+密码进行MD5加密
+退出功能，退出后销毁session
+
+
+购物车模块：
+未登录用户只能浏览商品，无法加入购物车
+登录后可显示用户之前浏览商品的记录，记录保存在Cookie中
+付款后删除用户已购商品，未勾选的商品，仍然保留在购物车
+
+
+默认账号：
+登录名：默认为zwq
+登录密码：默认为123zwq
+
+登录名：默认为zzwwqq
+登录密码：默认为123zzwwqq
+

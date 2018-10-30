@@ -88,7 +88,6 @@ public class CartItemsDao {
 			return cartItemList;
 		}
 		
-
 		/**
 		 * 通过用户查询购物车条目（包括商品表，购物车表）
 		 * 先将所有数据存放到多个Map，再将Map转换为CartItems
@@ -114,21 +113,9 @@ public class CartItemsDao {
 			String sql = "delete from t_cartitem where cartItemId = ?";
 			return qr.update(sql,cartItemId);
 		}
-		
-		
+				
 		public int deleteAllCartItemsByuid(String uid) throws SQLException {
 			String sql = "delete from t_cartitem where uid =?";
 			return qr.update(sql,uid);
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}		
 }

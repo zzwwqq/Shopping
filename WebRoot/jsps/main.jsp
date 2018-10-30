@@ -96,10 +96,10 @@
 <c:forEach begin = "${begin }" end = "${end }" var = "i">
     <c:choose>
     <c:when test="${i eq pageBean.currentPageNum }">
-    	<span class = "spanBtnSelect">${i }</span>
+    	<span style="color:green;font-size: x-large;"class = "spanBtnSelect">${i }</span>
     </c:when>
     <c:otherwise>
-    	<a style="color:orange;" href="PageServlet?method=getPageBean&currentPageNum=${i }" class = "aBtn">${i }</a>
+    	<a style="color:orange;font-size: x-large;" href="PageServlet?method=getPageBean&currentPageNum=${i }" class = "aBtn">${i }</a>
     </c:otherwise>
     </c:choose>
 </c:forEach>  
